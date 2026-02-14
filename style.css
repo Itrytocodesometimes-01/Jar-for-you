@@ -1,6 +1,6 @@
 body {
-            background-color: #ffe6eb; /* Pastel Pink Background */
-            font-family: 'Courier New', Courier, monospace; /* Typewriter style */
+            background-color: #ffe6eb;
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,22 +16,20 @@ body {
             margin-bottom: 20px;
         }
 
-        /* The Glass Jar Container */
         .jar {
             position: relative;
             width: 300px;
             height: 400px;
-            background: rgba(255, 255, 255, 0.4); /* Semi-transparent glass */
+            background: rgba(255, 255, 255, 0.4);
             border: 4px solid #fff;
-            border-radius: 50px 50px 80px 80px; /* Rounded bottom */
+            border-radius: 50px 50px 80px 80px; 
             box-shadow: 0 10px 30px rgba(212, 139, 165, 0.3);
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Notes sit at the bottom */
-            overflow: hidden; /* Keeps notes inside */
+            align-items: flex-end; 
+            overflow: hidden;
         }
 
-        /* The Lid of the Jar */
         .lid {
             position: absolute;
             top: -20px;
@@ -44,7 +42,6 @@ body {
             z-index: 10;
         }
 
-        /* The Folded Notes inside the Jar */
         .note-paper {
             position: absolute;
             width: 60px;
@@ -53,17 +50,15 @@ body {
             transition: transform 0.3s ease;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             border-radius: 5px;
-            /* We will set colors in JS */
         }
 
         .note-paper:hover {
-            transform: scale(1.1) !important; /* Pop up slightly on hover */
+            transform: scale(1.1) !important;
             z-index: 20;
         }
 
-        /* --- THE POPUP MODAL (Hidden by default) --- */
         #modal {
-            display: none; /* Hidden */
+            display: none; 
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
