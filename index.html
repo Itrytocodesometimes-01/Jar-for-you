@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Pick a note! 🎀</h1>
+
+    <div class="jar-container">
+        <div style="position: relative; width: 300px; margin: 0 auto;">
+            <div class="lid"></div>
+        </div>
+        
+        <div class="jar" id="jar">
+            </div>
+    </div>
+
+    <div id="modal">
+        <div class="modal-content">
+            <p class="modal-text" id="modal-text"></p>
+            <button class="close-btn" onclick="closeNote()">Close x</button>
+        </div>
+    </div>
+    <script>
+        const myNotes = [
+            "You are a good person",
+            "Drink water",
+            "Sending you a big hug! 🧸",
+            "You looked really cute everyday ✨",
+            "i love when you tell me how you store your mermory.. you look really excited while telling that to me",
+            "When you talk to your frd on the phone and then you tell me about it, it is nice",
+            "When you tell me about your day and how you feel about it",
+            "your laugh is awesome",
+            "You are always safe with me",
+            "The song blue by young kai, that's what i feel about you",
+            "You will always have a friend in me",
+            "You will be there in my 7 min",
+            "You are kind",
+            "you are understanding",
+            "and i might not know anything about you but if you ever need someone i'm here for you",
+            "You make my life a little bit better!"
+        ];
+
+        // 2. Pastel Colors for the folded papers
+        const colors = [
+            '#ffdac1', // Peach
+            '#e2f0cb', // Green
+            '#b5ead7', // Mint
+            '#c7ceea', // Purple
+            '#ffb7b2', // Pink
+            '#fff2cc'  // Yellow
+        ];
+
+        const jar = document.getElementById('jar');
+        const modal = document.getElementById('modal');
+        const modalText = document.getElementById('modal-text');
+
+        
+        function fillJar() {
+            myNotes.forEach(note => {
+                const paper = document.createElement('div');
+                paper.classList.add('note-paper');
+
+                // Pick a random color
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                paper.style.backgroundColor = randomColor;
+
+                // Random Position inside the jar
+                // We limit the range so they stay inside the glass bounds
+                const randomLeft = Math.floor(Math.random() * 220) + 10; // 10px to 230px
+                const randomTop = Math.floor(Math.random() * 250) + 50;  // 50px to 300px
+                const randomRotate = Math.floor(Math.random() * 360); // Full rotation
+
+                paper.style.left = randomLeft + 'px';
+                paper.style.top = randomTop + 'px';
+                paper.style.transform = `rotate(${randomRotate}deg)`;
+
+                // Add click event to open the note
+                paper.onclick = function() {
+                    openNote(note);
+                };
+
+                jar.appendChild(paper);
+            });
+        }
+
+        // 4. Open the Note
+        function openNote(message) {
+            modalText.innerText = message;
+            modal.style.display = 'flex';
+        }
+
+        // 5. Close the Note
+        function closeNote() {
+            modal.style.display = 'none';
+        }
+
+        // Run the function to create the notes when the page loads
+        fillJar();
+
+    </script>
+</body>    
+</html>
