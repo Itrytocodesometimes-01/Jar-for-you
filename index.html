@@ -43,15 +43,13 @@
             "and i might not know anything about you but if you ever need someone i'm here for you",
             "You make my life a little bit better!"
         ];
-
-        // 2. Pastel Colors for the folded papers
         const colors = [
-            '#ffdac1', // Peach
-            '#e2f0cb', // Green
-            '#b5ead7', // Mint
-            '#c7ceea', // Purple
-            '#ffb7b2', // Pink
-            '#fff2cc'  // Yellow
+            '#ffdac1',
+            '#e2f0cb',
+            '#b5ead7', 
+            '#c7ceea',
+            '#ffb7b2',
+            '#fff2cc'
         ];
 
         const jar = document.getElementById('jar');
@@ -64,21 +62,18 @@
                 const paper = document.createElement('div');
                 paper.classList.add('note-paper');
 
-                // Pick a random color
                 const randomColor = colors[Math.floor(Math.random() * colors.length)];
                 paper.style.backgroundColor = randomColor;
 
-                // Random Position inside the jar
-                // We limit the range so they stay inside the glass bounds
-                const randomLeft = Math.floor(Math.random() * 220) + 10; // 10px to 230px
-                const randomTop = Math.floor(Math.random() * 250) + 50;  // 50px to 300px
-                const randomRotate = Math.floor(Math.random() * 360); // Full rotation
+                
+                const randomLeft = Math.floor(Math.random() * 220) + 10; 
+                const randomTop = Math.floor(Math.random() * 250) + 50; 
+                const randomRotate = Math.floor(Math.random() * 360);
 
                 paper.style.left = randomLeft + 'px';
                 paper.style.top = randomTop + 'px';
                 paper.style.transform = `rotate(${randomRotate}deg)`;
 
-                // Add click event to open the note
                 paper.onclick = function() {
                     openNote(note);
                 };
@@ -87,18 +82,16 @@
             });
         }
 
-        // 4. Open the Note
+    
         function openNote(message) {
             modalText.innerText = message;
             modal.style.display = 'flex';
         }
 
-        // 5. Close the Note
         function closeNote() {
             modal.style.display = 'none';
         }
 
-        // Run the function to create the notes when the page loads
         fillJar();
 
     </script>
